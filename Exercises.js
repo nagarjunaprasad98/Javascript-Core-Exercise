@@ -109,14 +109,33 @@ function mergerdArray(arr1, arr2) {
 console.log("mergerd Two sorted Arrays ", mergerdArray(arr1, arr2));
 // Write a function to find the union of two arrays.
 
-function unionOfTwoArrays(arr1, arr2){
+function unionOfTwoArrays(arr1, arr2) {
   const newArray = new Set([...arr1, ...arr2]);
 
   return Array.from(newArray);
 }
 
-console.log("union of two arrays ", unionOfTwoArrays(arr1, arr2))
+const JSON_obj = [
+  { name: "nagarjuna", age: 25 },
+  { name: "nagarjuna", age: 30 },
+];
+
+console.log("union of two arrays ", unionOfTwoArrays(arr1, arr2));
 // Write a function to check if an array is a subset of another array.
+
+const subSet = (arr1, arr2)=>{
+  const sub = new Set(arr1);
+  const sup = new Set(arr2);
+
+  for(let elem of sub){
+    if(!sup.has(elem)){
+      return false;
+    }
+  }
+  return true;
+}
+console.log('subSet of any another array ', subSet(arr1, arr2))
+
 // Write a function to find the second largest element in an array.
 // Write a function to find the elements that appear only once in an array.
 // Write a function to move all zeros to the end of an array.
