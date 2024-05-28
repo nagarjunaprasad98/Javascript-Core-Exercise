@@ -123,21 +123,56 @@ const JSON_obj = [
 console.log("union of two arrays ", unionOfTwoArrays(arr1, arr2));
 // Write a function to check if an array is a subset of another array.
 
-const subSet = (arr1, arr2)=>{
+const subSet = (arr1, arr2) => {
   const sub = new Set(arr1);
   const sup = new Set(arr2);
 
-  for(let elem of sub){
-    if(!sup.has(elem)){
+  for (let elem of sub) {
+    if (!sup.has(elem)) {
       return false;
     }
   }
   return true;
-}
-console.log('subSet of any another array ', subSet(arr1, arr2))
+};
+console.log("subSet of any another array ", subSet([2, 3, 4, 5], [7, 8, 9]));
 
 // Write a function to find the second largest element in an array.
+
+const secontLargestElement = (a) => {
+  for (let i = 0; i < a.length; i++) {
+    for (let j = i + 1; j < a.length; j++) {
+      if (a[i] > a[j]) {
+        let temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+      }
+    }
+  }
+  return a[a.length - 2];
+};
+
+console.log(
+  "Second Largest Element in ana array",
+  secontLargestElement([2, 5, 8, 9, 3, 6, 8, 1, 5])
+);
 // Write a function to find the elements that appear only once in an array.
+
+const elementAppearOnlyOnce = (arr) => {
+  const countStore = {};
+
+  arr.forEach((val) => {
+    const currentCount = countStore[val] ?? 0;
+    countStore[val] = currentCount + 1;
+  });
+  const result = Object.keys(countStore).filter((val) => countStore[val] === 1);
+
+  return result;
+};
+
+console.log(
+  "Element that appears only once in agiven array",
+  elementAppearOnlyOnce([1, 2, 3, 3, 2])
+);
 // Write a function to move all zeros to the end of an array.
 // Write a function to sort an array in ascending order.
 // Write a function to sort an array in descending order.
